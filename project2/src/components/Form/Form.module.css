@@ -1,0 +1,46 @@
+.content_form{
+    max-width: 1000px;
+    display: flex;
+    margin: 0px auto;
+    gap: 81px;
+    
+}
+
+.content_form input{
+    width: 440px;
+    height: 40px;
+    margin-left: 16px;
+}
+
+.content_form textarea{
+    width: 440px;
+    height: 40px;
+    margin-left: 16px;
+    font-family: "Poppins", sans-serif;
+}
+.content_form label{
+   position: relative;
+   top: 13px;
+   left: 30px;
+   background-color: white;
+   font-family: "Poppins", sans-serif;
+}
+
+.content_second{
+    display: block;
+    max-width: 472px;
+    white-space: nowrap;
+    margin: 0 auto;
+    margin-top:50px ;
+    gap: 20px;
+}
+
+.content_img img {
+    width: 508px;
+    height: 438px;
+}
+
+.top_btn{
+    display: flex;
+    gap: 20px;
+}

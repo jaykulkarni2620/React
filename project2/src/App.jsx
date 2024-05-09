@@ -2,18 +2,16 @@
 import './App.css'
 import Navigation from './components/Navigation/Navigation2'
 import Hero from './components/Hero/Hero'
-import Button from './components/Button/Button'
+import Button from './components/Button/Button' 
+import Form from "./components/Form/Form"
 
 function App() {
   return (
     <>
    <Navigation/>
    <Hero/>
-   <Button text="VIA SUPPORT CHAT"/>
-   <Button text="VIA CALL"/>
-   <Button 
-   isOutline={true}
-   text="VIA EMAIL FORM"/>
+
+   <Form/>
    </>
   )
 }
