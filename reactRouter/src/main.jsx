@@ -1,31 +1,45 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
 import About from './components/About/About'
 import Layout from './components/Layout'
 import Home from './components/Home/Home'
+import Contact from './components/Contact/Contact'
+
+
+// const router = createBrowserRouter(
+//   [
+//     {
+//     path: '/',
+//     element: <Layout/>,
+
+//     children: [{
+
+//       path: "",
+//       element: <Home/>
+
+//     },
+//     {
+//       path: "about",
+//       element: <About/>
+//     }
+//   ]
+
+//     }
+//   ]
+// )
 
 const router = createBrowserRouter(
-  [
-    {
-    path: '/',
-    element: <Layout/>,
+  createRoutesFromElements(
+    <Route path='/' element={<Layout/>}>
 
-    children: [{
-
-      path: "",
-      element: <Home/>
-
-    },
-    {
-      path: "about",
-      element: <About/>
-    }
-  ]
-
-    }
-  ]
+    <Route path='' element={<Home/>} />
+    <Route path='about' element={<About />}/>
+    <Route path='contact' element={<Contact />}/>
+    
+    </Route>
+  )
 )
 
 ReactDOM.createRoot(document.getElementById('root')).render(
