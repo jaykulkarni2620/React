@@ -42,6 +42,16 @@ export class AuthService {
         }
     }
 
+    // direct jar home page var land kel tar user la mhit asayla hav to log in ahe or not 
+
+    async getCurrentUser() {
+        try {
+          return await this.account.get()
+        } catch (error) {
+            throw error
+        }
+    }
+
 }
 
 // koi bhi access karega to authService . lagake jo value chahiye lelega
