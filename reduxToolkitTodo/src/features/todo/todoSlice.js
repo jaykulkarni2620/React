@@ -4,13 +4,11 @@ import { nanoid } from 'nanoid';
 //initial state store starting me kaise dikhega 
 
 const initialState = {
-
     todos: [{
         id: 1,
         text: "Hello World"
     }]
-
-}
+};
 
 
 //slice ek reducer hai jo ke function hai
