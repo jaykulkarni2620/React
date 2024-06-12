@@ -3,7 +3,7 @@ import useTheme from "../contexts/Theme";
 export default function ThemeBtn() {
     
     const {themeMode, lightTheme, darkTheme } = useTheme()
-    const onChangeBtn = () => {
+    const onChangeBtn = (e) => {
         //input madhe aapan by deafult checked la true kel ahe means value dili ahe so condition apan ashi use karat ahe ke jar darkModeStatus checked asel tar apan darktheme() call karnar
         const darkModeStatus = e.currentTarget.checked
         if (darkModeStatus) {
