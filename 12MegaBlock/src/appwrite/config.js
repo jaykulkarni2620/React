@@ -1,0 +1,45 @@
+import { Client, ID, Databases, Storage, Query } from 'appwrite'
+import conf from '../conf/conf';
+
+export class Service {
+
+    client = new Client();
+    databases;
+    bucket;
+
+    constructor() {
+        this.client
+        .setEndpoint(conf.appwriteUrl)
+        .setProject(conf.appwriteProjectId)
+        // creating new database and pass client
+        this.databases = new Databases(this.client);
+        this.bucket = new Storage(this.client);
+    }
+
+    //create blog function
+    async createPost({title, slug, content, featuredImage, status, userId}) {
+        try {
+            return await this.databases.createDocument(
+                conf.appwriteDatabaseId,
+                conf.appwriteCollectionId,
+                slug,
+                //last we need object as per the syntax
+                {
+                    title,
+                    content,
+                    featuredImage,
+                    status,
+                    userId
+                }
+            )
+        } catch (error) {
+            console.log("Appwrite service :: createPost :: error", error);
+        }
+    }
+
+}
+
+
+const service = new Service()
+
+export default service;
