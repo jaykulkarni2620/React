@@ -52,9 +52,22 @@ export class AuthService {
         }
     }
 
+    //logout method 
+    // with deleteSessions(all):- saglikdhun user log out honar // with deleteSession('current'):- fakt signle tab madhun log out
+
+    async logout() {
+        try {
+            await this.account.deleteSessions('all')
+        } catch (error) {
+            throw error
+        }
+    }
+
 }
 
-// koi bhi access karega to authService . lagake jo value chahiye lelega
+// koi bhi access karega to authService .login , .logout lagake jo value chahiye lelega
 const authService = new AuthService();
+
+
 
 export default AuthService
