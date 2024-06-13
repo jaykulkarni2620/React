@@ -40,7 +40,7 @@ export class Service {
     //updatte blog
     async updatePost (slug, {title, content, featuredImage, status}) {
         try {
-            await this.databases.updateDocument(
+            return await this.databases.updateDocument(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
                 slug,
@@ -53,9 +53,10 @@ export class Service {
                 }
             )
         } catch (error) {
-            console.log()
+            console.log("facing error in updatePost", error)
         }
     }
+
 
 }
 
