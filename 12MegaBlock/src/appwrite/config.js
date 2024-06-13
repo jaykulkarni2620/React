@@ -37,6 +37,26 @@ export class Service {
         }
     }
 
+    //updatte blog
+    async updatePost (slug, {title, content, featuredImage, status}) {
+        try {
+            await this.databases.updateDocument(
+                conf.appwriteDatabaseId,
+                conf.appwriteCollectionId,
+                slug,
+
+                {
+                    title,
+                    content,
+                    featuredImage,
+                    status,
+                }
+            )
+        } catch (error) {
+            console.log()
+        }
+    }
+
 }
 
 
