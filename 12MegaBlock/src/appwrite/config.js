@@ -90,8 +90,8 @@ export class Service {
         
     }
 
+    // all post with query get here
     async getPosts( queries = [ Query.equal("status", "active")]){
-
         try {
             await this.databases.listDocuments(
                 conf.appwriteDatabaseId,
@@ -103,6 +103,21 @@ export class Service {
             return false;
         }
         
+    }
+
+    // File Upload service
+
+    async uploadFile(file) {
+        try {
+            return await this.bucket.createFile(
+                conf.appwriteBucketId,
+                ID.unique(),
+                file
+            )
+        } catch (error) {
+            console.log("error come from upload file", error);
+            return false
+        }
     }
 
 }
