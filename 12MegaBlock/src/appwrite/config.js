@@ -120,6 +120,19 @@ export class Service {
         }
     }
 
+    //delete file
+    async deleteFile(fileId){
+        try {
+            await this.bucket.deleteFile(
+                conf.appwriteBucketId,
+                fileId
+            )
+            return true
+        } catch (error) {
+            console.log("comes from deleFile", error);
+        }
+    }
+
 }
 
 
