@@ -133,6 +133,15 @@ export class Service {
         }
     }
 
+    // getFile preview 
+
+    getFilePreview(fileId) {
+        return this.bucket.getFilePreview(
+            conf.appwriteBucketId,
+            fileId,
+        )
+    }
+
 }
 
 
