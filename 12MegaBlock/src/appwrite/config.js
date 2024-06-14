@@ -73,7 +73,8 @@ export class Service {
             return false;
         }
     }
-
+    
+    // single post
     async getPost(slug) {
         try {
             return await this.databases.getDocument(
@@ -85,6 +86,21 @@ export class Service {
         } catch (error) {
             console.log('error comes from getposts', error);
             return false
+        }
+        
+    }
+
+    async getPosts( queries = [ Query.equal("status", "active")]){
+
+        try {
+            await this.databases.listDocuments(
+                conf.appwriteDatabaseId,
+                conf.appwriteCollectionId,
+                queries,  
+            )
+        } catch (error) {
+            console.log("error in getting all post", error);
+            return false;
         }
         
     }
