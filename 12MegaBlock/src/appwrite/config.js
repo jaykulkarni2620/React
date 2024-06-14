@@ -37,7 +37,7 @@ export class Service {
         }
     }
 
-    //updatte blog
+    //update blog function
     async updatePost (slug, {title, content, featuredImage, status}) {
         try {
             return await this.databases.updateDocument(
@@ -57,6 +57,7 @@ export class Service {
         }
     }
 
+    //delete blog function
     async deletePost(slug) {
         try {
             await this.databases.deleteDocument(
@@ -73,7 +74,20 @@ export class Service {
         }
     }
 
-
+    async getPost(slug) {
+        try {
+            return await this.databases.getDocument(
+                conf.appwriteDatabaseId,
+                conf.appwriteCollectionId,
+                slug,
+            )
+            
+        } catch (error) {
+            console.log('error comes from getposts', error);
+            return false
+        }
+        
+    }
 
 }
 
